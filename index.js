@@ -26,7 +26,7 @@ fetch('https://opensheet.elk.sh/1yqyPnBtwf6gUhOT3wFDk-FaQzSo6LfsnnDNm5WFZUE8/meh
             div.addEventListener('click', () => {
 
                 let img = document.getElementsByClassName("serrvicsimage")[0].src
-                let text = img
+                let text = `Mujhe yeh mehadi laag vaane hai , Please Replay Kare ,  ${img}`
                 let url = "https://wa.me/916387215755?text=" + encodeURIComponent(text)
 
                 window.open(url, "_blank")
