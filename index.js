@@ -17,7 +17,7 @@ fetch('https://opensheet.elk.sh/1yqyPnBtwf6gUhOT3wFDk-FaQzSo6LfsnnDNm5WFZUE8/meh
             div.classList = "servicsdata"
 
             image.src = `./images/${servicsCard.images}`
-            span.innerText = `${servicsCard.Servics} - Price:${servicsCard.Price} Upto`
+            span.innerText = `${servicsCard.mehadiName} - Price:${servicsCard.price} Upto`
 
             div.appendChild(image)
             div.appendChild(span)
@@ -27,9 +27,11 @@ fetch('https://opensheet.elk.sh/1yqyPnBtwf6gUhOT3wFDk-FaQzSo6LfsnnDNm5WFZUE8/meh
 
                 let img = document.getElementsByClassName("serrvicsimage")[0].src
                 let text = `Mujhe yeh mehadi laag vaane hai , Please Replay Kare ,  ${img}`
-                let url = "https://wa.me/916387215755?text=" + encodeURIComponent(text)
+                let url = `https://wa.me/91${data[1].TopicsValues}?text=${encodeURIComponent(text)}`
+               
 
                 window.open(url, "_blank")
+
 
 
             })
@@ -56,7 +58,7 @@ fetch('https://opensheet.elk.sh/1yqyPnBtwf6gUhOT3wFDk-FaQzSo6LfsnnDNm5WFZUE8/meh
             i++
         }
 
-        document.getElementsByClassName('whatsappimg')[0].src = `./image/whatsapp.png`;
+        document.getElementsByClassName('whatsappimg')[0].src = `./images/whatsapp.png`;
         // window.open(`https://wa.me/${data[3].TopicsValues}`,"_blank") 
 
 
