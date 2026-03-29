@@ -5,61 +5,38 @@ fetch('https://opensheet.elk.sh/1yqyPnBtwf6gUhOT3wFDk-FaQzSo6LfsnnDNm5WFZUE8/meh
     .then(res => res.json())
     .then(data => {
         document.getElementsByClassName('logo')[0].innerText = `${data[0].TopicsValues}`
+        document.getElementsByClassName('whatsappimg')[0].src = `./images/whatsapp.png`;
 
         var servicsCardd = document.getElementById('servcis1')
 
         data.forEach(servicsCard => {
 
-            var div = document.createElement('div')
-            var image = document.createElement('img')
-            var span = document.createElement('span')
-            image.classList = "serrvicsimage"
-            div.classList = "servicsdata"
+            var numberprice = data.filter(e => e.price).length
+            var slideimage = document.getElementById('sildeimg')
 
-            image.src = `./images/${servicsCard.images}`
-            span.innerText = `${servicsCard.mehadiName} - Price:${servicsCard.price} Upto`
+            var k = 0
 
-            div.appendChild(image)
-            div.appendChild(span)
-            servicsCardd.appendChild(div)
+            // RIGHT BUTTON (next)
+            document.getElementById('rigthbtn').addEventListener('click', () => {
 
-            div.addEventListener('click', () => {
+                k++
 
-                let img = document.getElementsByClassName("serrvicsimage")[0].src
-                let text = `Mujhe yeh mehadi laag vaane hai , Please Replay Kare ,  ${img}`
-                let url = `https://wa.me/91${data[1].TopicsValues}?text=${encodeURIComponent(text)}`
-               
-
-                window.open(url, "_blank")
+                if (k >= data.length) {
+                    k = 0
+                }
+                slideimage.src = `./images/${data[k].images}`
+            })
 
 
+            // LEFT BUTTON (previous)
+            document.getElementById('leftbtn').addEventListener('click', () => {
+                k--
+                if (k < 0) {
+                    k = data.length - 1
+                }
+                slideimage.src = `./images/${data[k].images}`
 
             })
         });
-
-
-
-        var slideimage = document.getElementById('sildeimg')
-
-        var i = 2
-        let columnLength = Object.keys(data[0]).length
-
-        setInterval(imageview, 1100)
-
-        function imageview() {
-
-
-            if (i > columnLength + 2) {
-                i = 1
-            }
-
-            slideimage.src = `./images/${data[i].images}`
-
-            i++
-        }
-
-        document.getElementsByClassName('whatsappimg')[0].src = `./images/whatsapp.png`;
-        // window.open(`https://wa.me/${data[3].TopicsValues}`,"_blank") 
-
-
     })
+

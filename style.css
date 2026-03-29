@@ -5,7 +5,12 @@
 }
 body {
     margin: 0;
-    font-family: Arial, sans-serif;     
+    font-family: Arial, sans-serif;  
+    width: 100%;
+    height: 100%;  
+    position: relative;
+    padding: 0% 20%;
+    background-color: #f22e02;
 }
 
 /* Navbar */
@@ -86,6 +91,8 @@ body {
 }
 .main1{
     width: 100%;
+    /* height: 500px; */
+    background-color: #02f23a;
 }
 #servcis1 {
     /* background-color: red; */
@@ -137,17 +144,31 @@ td {
     bottom: 0px;
 }
 
-.sildeimg {
+#sildeimg {
     width: 100%;
-    height: 250px;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
 
 }
+#leftbtn , #rigthbtn{
+    width: 150px;
+    height: 50px;  
+    /* border-radius: 20px;   */
+    opacity: 1;
+    bottom: 0px;
+    /* justify-content: center;
+    align-items: center; */
+}
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .footerBox {
         flex-direction: column;
         text-align: center;
+    }
+    body{
+        padding: 0% 0%;
     }
 
     .footCol {
